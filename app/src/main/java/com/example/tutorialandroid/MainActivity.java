@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btn, btn2;
+    private Button btn, btn2, act_change, login_btn;
     private EditText pass;
 
 
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.editText);
         btn = (Button) findViewById(R.id.button);
         btn2 = (Button) findViewById(R.id.button2);
+        act_change = (Button) findViewById(R.id.act_change);
+        login_btn = (Button) findViewById(R.id.login_btn);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -68,6 +71,23 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog alert = builder.create();
                 alert.setTitle("App closing");
                 alert.show();
+            }
+        });
+        act_change.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View view) {
+               Intent intent = new Intent(".SecondActivity");
+               startActivity(intent);
+            }
+        });
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(".LoginActivity");
+                startActivity(intent);
             }
         });
     }
